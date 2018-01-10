@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    background-color: darkgray;
+}
+
+#container {
+    height: 700px;
+    width: 700px;
+    margin: 40px auto;    
+}
+
+#nav {
+    background-color: darkslategray;
+    height: 300px;
+    border-radius: 25px 0 0 0;
+}
+
+.alert {
+    color: #000;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 3px;
+    background-color: #fff;
+    margin: 0;
+    width: 400px;
+    border-radius: 20px;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 44px;
+}
+
+#form {
+    margin: auto 115px;
+    height: 110px;
+}
+
+input[type=text] {
+	width: 400px;
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 10px;
+    float: left;
+}
+
+input[type=image]
+{
+    display: inline-block;
+    float: left;
+    margin-left: -50px;
+}
+
+#list {
+    list-style-type: none;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+
+.task {
+    height: 70px;
+    display: block;
+    background-color: aliceblue;
+    border-bottom: 1px solid darkslategray;
+    color: #000;
+    line-height: 70px;
+    padding: 20px;
+    display: block;
+}
+
+#remove {
+    display: inline-block;
+    width: 70px; 
+    height: 70px;
+    background-image: url('images/remove.png');
+    background-size: 70px 70px;
+    border: none;
+}
+
+.selected {
+   height: 70px;
+    display: block;
+    background-color: aliceblue;
+    border-bottom: 1px solid darkslategray;
+    color: red;
+    line-height: 70px;
+    padding-left: 20px;
+    display: block;
+}
+
+#menu {
+    padding: 50px auto;
+}
+
+#menu ul {
+    clear: both;
+    text-align: center;
+    list-style: none;
+    color: #fff;
+}
+
+#menu ul li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 22px;
+}
+
