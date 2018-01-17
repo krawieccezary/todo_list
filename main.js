@@ -6,7 +6,7 @@ var main = function () {
 
         console.log(1);
 
-        if (zadanie.length == 0) {
+        if (zadanie.length === 0) {
             $('.alert').show();
         } else {
 
