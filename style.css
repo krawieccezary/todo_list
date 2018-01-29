@@ -6,7 +6,7 @@ body {
 #container {
     height: 700px;
     width: 700px;
-    margin: 40px auto;    
+    margin: 40px auto;
 }
 
 #nav {
@@ -41,21 +41,20 @@ h1 {
 }
 
 input[type=text] {
-	width: 400px;
-	background-color: #efefef;
-	color: #666;
-	border: 2px solid #ddd;
-	border-radius: 5px;
-	font-size: 20px;
-	padding: 10px;
-	box-sizing: border-box;
-	outline: none;
-	margin-top: 10px;
+    width: 400px;
+    background-color: #efefef;
+    color: #666;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    margin-top: 10px;
     float: left;
 }
 
-input[type=image]
-{
+input[type=image] {
     display: inline-block;
     float: left;
     margin-left: -50px;
@@ -69,52 +68,39 @@ input[type=image]
     display: block;
 }
 
-
 .work {
-    height: 70px;
+    height: 40px;
     display: block;
     background-color: aliceblue;
     border-bottom: 1px solid darkslategray;
     color: #000;
-    line-height: 70px;
+    line-height: 40px;
     padding: 20px;
     display: block;
 }
 
-#remove {
-    display: inline-block;
-    width: 70px; 
-    height: 70px;
-    background-image: url('images/remove.png');
-    background-size: 70px 70px;
-    border: none;
+.button {
+    width: 40px;
+    height: 40px;
 }
 
-.selected {
-   height: 70px;
+.buttons_bar {
+    float: right;
+}
+
+.tick {
+    height: 40px;
     display: block;
-    background-color: aliceblue;
+    background-color: lightgreen;
     border-bottom: 1px solid darkslategray;
-    color: red;
-    line-height: 70px;
-    padding-left: 20px;
+    color: #000;
+    line-height: 40px;
+    padding: 20px;
     display: block;
 }
 
-#menu {
-    padding: 50px auto;
+.input_edit {
+     width: 400px;
+    background-color: #efefef;
+    color: #666;
 }
-
-#menu ul {
-    clear: both;
-    text-align: center;
-    list-style: none;
-    color: #fff;
-}
-
-#menu ul li {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 22px;
-}
-

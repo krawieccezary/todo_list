@@ -1,64 +1,75 @@
 var main = function () {
     $('.alert').hide();
-
+    var empty;
+    
     $('#add').click(function () {
         var zadanie = $('#task').val();
-
-        console.log(1);
 
         if (zadanie.length === 0) {
             $('.alert').show();
         } else {
-
-            var tick_button = $('<img class="buttons" id="tick" width="70" height="70" src="images/tick.png"/>');
-
-            var edit_button = $('<img class="buttons" id="edit" width="70" height="70" src="images/edit.png"/>');
-
-            var remove_button = $('<img class="buttons" id="remove" width="70" height="70" src="images/remove.png"/>');
-            $('<li>').text(zadanie).prependTo('#list').addClass('work');
-            $('#list :nth-child(1)').append(tick_button).append(edit_button).append(remove_button);
+            
+             var empty = $('#list').children('li').length;
+        if (!empty)
+       console.log('brak zadań!');
 
             $('#task').val('');
             $('.alert').hide();
 
-            $('#list').click(function (event) {
-                var parent = event.target.parentNode;
+            var item = $('<li>').text(zadanie);
 
-                if (event.which === '#remove') {
-                    $(parent).remove();
-                    console.log(3);
+            var buttons_bar = $('<div>').addClass('buttons_bar');
+
+            var tick_button = $('<img class="button" data-action="tick"  src="images/tick.png"/>');
+
+            var edit_button = $('<img class="button" data-action="edit" src="images/edit.png"/>');
+
+            var remove_button = $('<img class="button" data-action="remove" src="images/remove.png"/>');
+
+            $(buttons_bar).append(tick_button).append(edit_button).append(remove_button);
+            $(item).append(buttons_bar).prependTo('#list').addClass('work');
+        };
+    });
+
+
+    $('#list').click(function (event) { // + wciśnięcie ENTER akceptuje ???
+        var parent = event.target.parentNode.parentNode;
+
+        if (event.target.dataset.action === 'tick') {
+            $(parent).toggleClass('tick');
+        }
+
+
+        if (event.target.dataset.action === 'edit') {
+            console.log(3);
+
+            $(parent).html(function () {
+
+                return $('<input class="input_edit" type="text" name="editt_place" data-place="edit_place" placeholder="' + $(this).text() + '"/>');
+
+            });
+
+            $('edit_place').keypress(function (e) {
+                if (e.which === 13) {
+                    var edit_text = $('edit_place').val();
+                    $('.work').text(edit_text).prependTo('#list');
+
+                    console.log(edit_text);
                 }
-
-
-                if (event.which === '#edit') {
-
-                    console.log('edit');
-                    console.log(3);
-                    /*  $('.selected').html(function () {
-
-                          return '<input type="text" name="editt_place" id="edit_place" placeholder="' + $(this).text() + '"/>'; */
-
-
-                    // };
-
-                    $('#edit_place').keypress(function (e) {
-                        if (e.which === 13) {
-                            var edit_text = $('#edit_place').val();
-                            $('.selected').text(edit_text).prependTo('#list').toggleClass('deselected');
-
-                            console.log(edit_text);
-                        }
-                    });
-                };
-
-
             });
         };
 
+        if (event.target.dataset.action === 'remove') {
+            $(parent).remove();
+        }
 
+        var empty = $('#list').children('li').length;
+        if (!empty)
+       console.log('brak zadań!');
     });
+    
+    
+   
 };
-/*  if (number == 0) 
-       $('<h2>').text('Brak zadań!').after('#menu');
-  else $('h2').remove(); */
+
 $(document).ready(main);
