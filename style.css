@@ -16,6 +16,7 @@ body {
 }
 
 .alert {
+    display: none;
     color: #000;
     text-align: center;
     line-height: 40px;
@@ -71,11 +72,22 @@ input[type=image] {
 .work {
     height: 40px;
     display: block;
-    background-color: aliceblue;
+    background-color: #efefef;
     border-bottom: 1px solid darkslategray;
     color: #000;
     line-height: 40px;
     padding: 20px;
+    display: none;
+}
+
+.text_bar {
+    float: left;
+}
+
+#brak {
+    text-align: center;
+    font-size: 24px;
+    border-radius: 0 0 25px 0;
     display: block;
 }
 
@@ -96,11 +108,14 @@ input[type=image] {
     color: #000;
     line-height: 40px;
     padding: 20px;
-    display: block;
 }
 
-.input_edit {
-     width: 400px;
-    background-color: #efefef;
+#edit_place {
+    width: 400px;
+    height: 40px;
     color: #666;
+    background-color: gainsboro;
+    margin: 0;
+    border: 0;
+    font-size: 24px;
 }
