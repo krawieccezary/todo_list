@@ -9,8 +9,7 @@ var main = function () {
 
         if (empty !== 0) {
             $('#brak').slideUp(700).css('display', 'none');
-        }
-        else  $('#brak').slideDown(1000).css('display', 'block');
+        } else $('#brak').slideDown(1000).css('display', 'block');
     };
 
     var radius_last_item = function () {
@@ -65,7 +64,7 @@ var main = function () {
 
     $('#list').on('click.changeItem', function (event) {
         var parent = event.target.parentNode.parentNode;
-        // console.log(parent);
+        //console.log(parent);
 
 
         // BUTTON "ZROBIONE"
@@ -76,11 +75,15 @@ var main = function () {
 
         // BUTTON "EDYCJA"  // TODO fix edition
         if (event.target.dataset.action === 'edit') {
+            var buttons_bar = event.target.parentNode;
+            var text_bar = buttons_bar.previousSibling;
+           
             var edit = event.target;
             // console.log(event.target);
             var remove = $(edit).next();
             //  console.log(remove);
-            var tick = $(edit).prev();
+            $(edit).prev().hide();
+            var tick = $('<img class="button" data-action="tick_edit"  src="images/tick.png"/>').prependTo(buttons_bar);
             console.log(tick);
 
             $(remove).attr('data-action', 'none');
@@ -95,25 +98,31 @@ var main = function () {
             }, 500);
 
 
-            var parent_edit = event.target.parentNode;
-            var text_bar = parent_edit.previousSibling;
-            //console.log('edit: ', text_bar);
+
+            console.log('edit1: ', $(text_bar).text());
 
             //TODO tekst w placeholderze
-            var edit_place = $('<div><input type="text" name="editt_place2" id="edit_place" placeholder="' + $(parent).text() + '"/></div>');
+            var edit_place = $('<div><input type="text" name="editt_place2" id="edit_place" value="'+ $(text_bar).text() + '"/></div>');
             //console.log(parent);
-            console.log(text_bar.textContent);
-            text_bar.textContent = '';
-
-            $(parent).append(edit_place);
-            // var tick_edit = $('<img class="button" data-action="tick_edit"  src="images/tick.png"/>');
+            // console.log(text_bar.textContent);
 
 
+            var tmp_text = $(text_bar).text();
+            console.log('tmp: ', tmp_text);
+            $(text_bar).text('');
+            $(text_bar).append(edit_place);
+
+            // FUNKCJA DODANIE EDYTOWANEGO ZADANIA
             var add_edit = function () {
-                //var parent = this.parentNode.parentNode;
+                //var parent_edit = this.parentNode.parentNode;
+                // console.log('edit: ',text_bar);
                 var edit_text = $('#edit_place').val();
+                if (edit_text.length === 0)
+                    $(text_bar).text(tmp_text);
                 $(edit_place).remove();
-                $(parent).prepend(edit_text);
+                //  console.log('aaa: ',$(text_bar).text());
+                $(text_bar).prepend(edit_text);
+                console.log('edit_text:', edit_text);
 
                 $(edit).animate({
                     opacity: 1,
@@ -124,7 +133,9 @@ var main = function () {
 
                 $(remove).attr('data-action', 'remove');
                 $(edit).attr('data-action', 'edit');
-               // $(tick).attr('data-action', 'tick');
+                // $(tick).attr('data-action', 'tick');
+                $(edit).prev().show();
+                $(tick).hide();
             };
 
             $(tick).click(add_edit);
