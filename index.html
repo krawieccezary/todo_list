@@ -6,28 +6,31 @@
     <meta name="keywords" content="todo-list, work-list, task-list">
     <meta name="description" content="TODO-LIST. The Best task-list in the world">
     <meta charset="utf-8">
-
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+   <div class="bg-image"></div>
     <div id="container">
         <div id="nav">
             <h1>TODO-LIST</h1>
             <div id="form">
-                <input type="text" name="tasks" id="task" placeholder="Wpisz zadanie.." />
-                <input type="image" id="add" src="images/add.png" width="70" height="70" />
+               <div class="wrap">
+                   <input type="text" name="tasks" id="task" placeholder="Wpisz zadanie.." />
+                   <input type="image" id="add" src="images/add.png" width="70" height="70" />
+               </div>
             </div>
 
             <h2 class="alert">Nie wpisano zadania!</h2>
         </div>
-        <div id="brak" class="work">Brak zadań! 
+        <div id="brak" class="work">Brak zadań!
         </div>
         <div>
             <ol id="list">
             </ol>
         </div>
-      
+
     </div>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="main.js"></script>

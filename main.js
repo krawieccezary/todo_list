@@ -5,7 +5,6 @@ var main = function () {
     //FUNKCJA JEŻELI BRAK ZADAŃ
     var empty_alert = function () {
         empty = $('#list').children('li').length;
-        console.log(empty);
 
         if (empty !== 0) {
             $('#brak').slideUp(700).css('display', 'none');
@@ -64,7 +63,7 @@ var main = function () {
 
     $('#list').on('click.changeItem', function (event) {
         var parent = event.target.parentNode.parentNode;
-        //console.log(parent);
+
 
 
         // BUTTON "ZROBIONE"
@@ -73,18 +72,17 @@ var main = function () {
 
         }
 
-        // BUTTON "EDYCJA"  // TODO fix edition
+        // BUTTON "EDYCJA"
         if (event.target.dataset.action === 'edit') {
             var buttons_bar = event.target.parentNode;
             var text_bar = buttons_bar.previousSibling;
-           
+
             var edit = event.target;
             // console.log(event.target);
             var remove = $(edit).next();
             //  console.log(remove);
             $(edit).prev().hide();
             var tick = $('<img class="button" data-action="tick_edit"  src="images/tick.png"/>').prependTo(buttons_bar);
-            console.log(tick);
 
             $(remove).attr('data-action', 'none');
             $(edit).attr('data-action', 'none');
@@ -101,7 +99,7 @@ var main = function () {
 
             console.log('edit1: ', $(text_bar).text());
 
-            //TODO tekst w placeholderze
+            //tekst w placeholderze
             var edit_place = $('<div><input type="text" name="editt_place2" id="edit_place" value="'+ $(text_bar).text() + '"/></div>');
             //console.log(parent);
             // console.log(text_bar.textContent);
@@ -120,7 +118,7 @@ var main = function () {
                 if (edit_text.length === 0)
                     $(text_bar).text(tmp_text);
                 $(edit_place).remove();
-                //  console.log('aaa: ',$(text_bar).text());
+                //  console.log($(text_bar).text());
                 $(text_bar).prepend(edit_text);
                 console.log('edit_text:', edit_text);
 
