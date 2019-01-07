@@ -11,18 +11,23 @@ body, html {
 
 #container {
     height: auto;
-    width: 700px;
+    max-width: 700px;
+    width: 100%;
     margin: 40px auto;
+    padding: 0 10px;
     position: absolute;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -20%);
+    box-sizing: border-box;
 }
 
 #nav {
-    background-color: rgba(0,0,0, 0.4);
+    background-color: rgba(0,0,0, 0.5);
     min-height: 300px;
     border-radius: 25px 0 0 0;
+    margin: 0 0 10px;
+    padding: 10px 0;
 }
 
 .alert {
@@ -34,10 +39,10 @@ body, html {
     background-color: rgba(0,0,0, 0.7);
     border: 1px solid rgba(213, 42, 42, 0.69);
     color: rgba(213, 42, 42, 0.69);
-    margin: 0;
-    width: 400px;
+    margin: 30px auto 0;
+    padding: 5px;
+    width: 70%;
     border-radius: 20px;
-    margin: auto;
 }
 
 h1 {
@@ -51,12 +56,11 @@ h1 {
 }
 
 #form {
-    margin: auto 115px;
-    height: 110px;
+    text-align: center;
 }
 
 input[type=text] {
-    width: 400px;
+    width: 70%;
     background-color: rgba(255,255,255,.1);
     color: #dddddd;
     border: 2px solid #ddd;
@@ -65,15 +69,19 @@ input[type=text] {
     padding: 10px;
     box-sizing: border-box;
     outline: none;
-    margin-top: 10px;
-    float: left;
+    margin: 10px auto 0;
+    display: inline-block;
 }
 
 input[type=image] {
     display: inline-block;
-    float: left;
+    position: relative;
+    top: 25px;
+    right: 5px;
     margin-left: -50px;
     outline: none;
+    width: 70px;
+    height: 70px;
 }
 
 #list {
@@ -87,7 +95,7 @@ input[type=image] {
 #list li.work {
     height: 30px;
     display: block;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0,0,0,.5);
     color: #dddddd;
     padding: 10px;
     display: none;
@@ -133,4 +141,11 @@ input[type=image] {
     border: 0;
     font-size: 18px;
     padding: 5px 10px;
+}
+
+
+@media screen and (max-width: 700px) {
+   #container {
+      top: 50px;
+   }
 }
